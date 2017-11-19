@@ -1,0 +1,56 @@
+{
+  "name": "ec-weather",
+  "description": "Environment Canada publishes XML/RSS feeds with current conditions and a 7 day forecast for 768 towns/cities across Canada. This package retrieves the feed, and returns a parsed JSON representation of it.",
+  "version": "1.0.0",
+  "main": "dist/ec-weather.node.js",
+  "browser": "dist/ec-weather.browser.js",
+  "author": "Jeff Schnurr <jschnurr@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jschnurr/ec-weather.git"
+  },
+  "keywords": [
+    "weather",
+    "canada"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack --progress --watch",
+    "test": "mocha --compilers js:babel-core/register ./test/**/*.test.js",
+    "test:single": "mocha --compilers js:babel-core/register",
+    "prepublishOnly": "npm run clean && npm run test && npm run build",
+    "clean": "rm -rf dist",
+    "pretest": "webpack"
+  },
+  "dependencies": {
+    "camel-case": "~3.0.0",
+    "html-to-text": "~3.3.0",
+    "request": "~2.83.0",
+    "request-promise-native": "~1.0.5",
+    "xml2js": "~0.4.19"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.0.1",
+    "uglifyjs-webpack-plugin": "^1.1.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

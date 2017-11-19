@@ -1,0 +1,10 @@
+<script src="../dist/ec-weather.browser.js"></script>
+<pre id="json"></pre>
+<script>
+ecWeather({
+        lang: 'en',
+        city: 'nb-23',
+    }).then((data) => {
+        document.getElementById('json').innerHTML = JSON.stringify(data, undefined, 2);
+    });
+</script>

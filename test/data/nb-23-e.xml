@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-ca">
+ 
+<!--
+This is a data file that is meant to be read by RSS readers or aggregators.
+See http://www.ec.gc.ca/meteo-weather/default.asp?lang=En&n=11703207-1 to learn more about our RSS service.
+-->
+
+ <title>Saint John - Weather - Environment Canada</title>
+ <link rel="related" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html" type="text/html"/>
+ <link rel="self" href="http://www.weather.gc.ca/rss/city/nb-23_e.xml" type="application/atom+xml"/>
+ <link rel="alternate" hreflang="fr-ca" href="http://www.meteo.gc.ca/rss/city/nb-23_f.xml" type="application/atom+xml"/>
+ <author>
+ <name>Environment Canada</name>
+ <uri>http://www.weather.gc.ca</uri>
+ </author>
+ <updated>2017-07-01T18:27:07Z</updated>
+ <id>tag:weather.gc.ca,2013-04-16:20170701182707</id>
+ <logo>http://www.weather.gc.ca/template/gcweb/assets/wmms-alt.png</logo>
+ <icon>http://www.weather.gc.ca/template/gcweb/assets/favicon.ico</icon>
+ <rights>Copyright 2017, Environment Canada</rights>
+ <entry>
+ <title>No watches or warnings in effect, Saint John</title>
+ <link type="text/html" href="http://www.weather.gc.ca/warnings/index_e.html"/>
+ <updated>2017-06-24T09:02:00Z</updated>
+ <published>2017-06-24T09:02:00Z</published>
+ <category term="Warnings and Watches"/>
+ <summary type="html">No watches or warnings in effect.</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_w1:20170624090200</id>
+ </entry>
+ <entry>
+ <title>Current Conditions: Light Drizzle, 14.8&#xB0;C</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T18:00:00Z</updated>
+ <published>2017-07-01T18:00:00Z</published>
+ <category term="Current Conditions"/>
+ <summary type="html"><![CDATA[<b>Observed at:</b> Saint John Airport 3:00 PM ADT Saturday 01 July 2017 <br/>
+<b>Condition:</b> Light Drizzle <br/>
+<b>Temperature:</b> 14.8&deg;C <br/>
+<b>Pressure / Tendency:</b> 101.6 kPa steady<br/>
+<b>Visibility:</b> 3.2 km<br/>
+<b>Humidity:</b> 100 %<br/>
+<b>Dewpoint:</b> 14.8&deg;C <br/>
+<b>Wind:</b> E 16 km/h<br/>
+<b>Air Quality Health Index:</b> 1 <br/>
+]]></summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_cc:20170701180000</id>
+ </entry>
+ <entry>
+ <title>Saturday: Chance of showers or drizzle. High 16. POP 60%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy with 60 percent chance of showers or drizzle. Fog patches along the coast. Wind south 20 km/h. High 16. UV index 4 or moderate. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc1:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Saturday night: Chance of showers or drizzle. Low 13. POP 60%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy with 60 percent chance of showers or drizzle this evening and after midnight. Showers beginning overnight. Risk of a thundershower overnight. Fog spreading inland this evening. Amount 10 mm in the heaviest showers. Wind becoming southwest 20 km/h overnight. Low 13. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc2:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Sunday: Showers. High 18 except 24 inland.</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Showers ending in the morning then a mix of sun and cloud. Risk of a thundershower in the morning. Fog retreating to the coast in the morning. Wind southwest 20 km/h. High 18 except 24 inland. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc3:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Sunday night: Cloudy periods. Low 12.</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy periods. Low 12. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc4:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Monday: Chance of showers. High 22. POP 30%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy with 30 percent chance of showers. High 22. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc5:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Monday night: Cloudy. Low 11.</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy. Low 11. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc6:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Tuesday: Chance of showers. High 22. POP 30%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy with 30 percent chance of showers. High 22. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc7:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Tuesday night: Chance of showers. Low 13. POP 30%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy with 30 percent chance of showers. Low 13. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc8:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Wednesday: A mix of sun and cloud. High 23.</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">A mix of sun and cloud. High 23. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc9:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Wednesday night: Cloudy periods. Low 10.</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy periods. Low 10. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc10:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Thursday: A mix of sun and cloud. High 24.</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">A mix of sun and cloud. High 24. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc11:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Thursday night: Chance of showers. Low 11. POP 30%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy periods with 30 percent chance of showers. Low 11. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc12:20170701140000</id>
+ </entry>
+ <entry>
+ <title>Friday: Chance of showers. High 20. POP 60%</title>
+ <link type="text/html" href="http://www.weather.gc.ca/city/pages/nb-23_metric_e.html"/>
+ <updated>2017-07-01T14:00:00Z</updated>
+ <published>2017-07-01T14:00:00Z</published>
+ <category term="Weather Forecasts"/>
+ <summary type="html">Cloudy with 60 percent chance of showers. High 20. Forecast issued 11:00 AM ADT Saturday 01 July 2017</summary>
+ <id>tag:weather.gc.ca,2013-04-16:nb-23_fc13:20170701140000</id>
+ </entry>
+ </feed>
+
