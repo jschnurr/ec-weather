@@ -1,6 +1,7 @@
-# ec-weather - the Environment Canada weather data parser
+[![Build Status](https://travis-ci.org/jschnurr/ec-weather.svg?branch=master)](https://travis-ci.org/jschnurr/ec-weather)
+# ec-weather - an Environment Canada weather forecast feed in JSON
 
-[weather.gc.ca](http://weather.gc.ca) provides weather forecasts for 768 locations
+[Weather.gc.ca](http://weather.gc.ca) provides weather forecasts for 768 locations
 in Canada, on the website and as atom RSS feeds. The purpose of this library is to
 transform this raw feed into clean, well formatted JSON suitable for use in your
 Node or Browser application.
@@ -23,7 +24,7 @@ var options = {
 ecweather(options)
 ```
 The two parameters are:
-- **lang** {string} - either 'en' or 'fr'.  Default 'en'.
+- **lang** {string} - either '*en*' or '*fr*'.  Default '*en*'.
 - **city** {string} - 5 character Environment Canada city code.
 
 Returns a promise, which resolves to the forecast as a JSON object.
@@ -44,7 +45,7 @@ Sample code is available in the **examples** directory.
 
 ## Browser
 ```html
-<script src="../dist/ec-weather.browser.js"></script>
+<script src="ec-weather.browser.js"></script>
 <pre id="json"></pre>
 <script>
 ecWeather({
@@ -56,10 +57,19 @@ ecWeather({
     });
 </script>
 ```
+### A note about [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+When testing in a browser, you may get the following error:
+```
+Failed to load https://weather.gc.ca/rss/city/nb-23_e.xml: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+```
+This occurs if the server hosting the javascript code above does not present the *Access-Control-Allow-Origin* header, or the
+value does not match your local host. During development, you can workaround the issue with the
+[Allow-Control-Allow-Origin extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
+in the Chrome Web Store.
 
 ## Node
 ```javascript
-const ecweather = require('../dist/ec-weather.node');
+const ecweather = require('ec-weather.node');
 
 ecweather({
   lang: 'en',
