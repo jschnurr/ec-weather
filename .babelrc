@@ -1,8 +1,3 @@
 {
-    "presets": [
-      ["env", { "targets": { "node": "current" } }],
-    ],
-    "plugins": [
-      ["add-module-exports"], // handle es6 default export
-    ]
-  }
+  "presets": ["@babel/preset-env" ]
+}

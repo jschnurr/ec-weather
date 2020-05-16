@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import reader from './reader';
 import transformer from './transformer';
 
-const rp = require('request-promise-native');
+const axios = require('axios');
 
 /**
  * Retrieve forecast for specified city / language and return parsed result.
@@ -21,10 +23,10 @@ async function ecWeather(options = {}) {
   const url = `https://weather.gc.ca/rss/city/${city.toLowerCase()}_${lang.slice(0, 1).toLowerCase()}.xml`;
 
   try {
-    let data = await rp({ uri: url, simple: true });
+    let data = await axios.get(url);
 
     // convert to JSON
-    data = await reader(data);
+    data = await reader(data.data);
 
     // apply transformations
     data = transformer(lang, city, data);

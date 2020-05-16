@@ -1,5 +1,5 @@
 import { fromString } from 'html-to-text/lib/html-to-text';
-import camelCase from 'camel-case';
+import camelCase  from "camel-case";
 
 /** * Builder for watches and warnings
  * - add a boolean to indicate whether a warning or watch is currently in effect.
