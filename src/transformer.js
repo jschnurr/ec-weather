@@ -1,5 +1,5 @@
-import { fromString } from 'html-to-text/lib/html-to-text';
-import camelCase  from "camel-case";
+import { fromString } from "html-to-text/lib/html-to-text";
+import camelCase from "camel-case";
 
 /** * Builder for watches and warnings
  * - add a boolean to indicate whether a warning or watch is currently in effect.
@@ -7,10 +7,9 @@ import camelCase  from "camel-case";
 function wwBuilder(item) {
   const newItem = item;
 
-  newItem.inEffect = (
-    (item.title.indexOf('No watches or warnings in effect') === -1) &&
-    (item.title.indexOf('Aucune veille ou alerte en vigueur') === -1)
-  );
+  newItem.inEffect =
+    item.title.indexOf("No watches or warnings in effect") === -1 &&
+    item.title.indexOf("Aucune veille ou alerte en vigueur") === -1;
   return newItem;
 }
 
@@ -19,18 +18,17 @@ function wwBuilder(item) {
  */
 function ccBuilder(item) {
   const newItem = item;
-  const readings = item.summary.split('\n');
+  const readings = item.summary.split("\n");
 
   readings.forEach((reading) => {
     const parts = reading.split(/:(.+)/);
-    const key = camelCase(parts[0].trim().replace('/', '_'));
+    const key = camelCase(parts[0].trim().replace("/", "_"));
     const val = parts[1].trim();
 
     newItem[key] = val;
   });
 
-  newItem.summary = item.summary.replace(new RegExp('\\s?\\n', 'gm'), ' | ');
-
+  newItem.summary = item.summary.replace(new RegExp("\\s?\\n", "gm"), " | ");
 
   return newItem;
 }
@@ -42,9 +40,11 @@ function wfBuilder(item) {
 }
 
 /** * Build Environment Canada city forecast badge URL
-*/
+ */
 function makeBadgeUrl(lang, city) {
-  return `https://weather.gc.ca/wxlink/wxlink.html?cityCode=${city.toLowerCase()}&lang=${lang.slice(0, 1).toLowerCase()}`;
+  return `https://weather.gc.ca/wxlink/wxlink.html?cityCode=${city.toLowerCase()}&lang=${lang
+    .slice(0, 1)
+    .toLowerCase()}`;
 }
 
 /**
@@ -81,16 +81,16 @@ function transform(lang, city, feed) {
       };
 
       switch (obj.type) {
-        case 'Warnings and Watches':
-        case 'Veilles et avertissements':
+        case "Warnings and Watches":
+        case "Veilles et avertissements":
           return wwBuilder(obj);
 
-        case 'Current Conditions':
-        case 'Conditions actuelles':
+        case "Current Conditions":
+        case "Conditions actuelles":
           return ccBuilder(obj);
 
-        case 'Weather Forecasts':
-        case 'Prévisions météo':
+        case "Weather Forecasts":
+        case "Prévisions météo":
           return wfBuilder(obj);
 
         default:
@@ -100,6 +100,4 @@ function transform(lang, city, feed) {
   };
 }
 
-
 export default transform;
-

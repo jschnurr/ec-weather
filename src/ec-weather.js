@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import reader from './reader';
-import transformer from './transformer';
+import reader from "./reader";
+import transformer from "./transformer";
 
-const axios = require('axios');
+const axios = require("axios");
 
 /**
  * Retrieve forecast for specified city / language and return parsed result.
@@ -16,11 +15,13 @@ const axios = require('axios');
 
 async function ecWeather(options = {}) {
   // default options
-  const city = options.city || 'nb-23';
-  const lang = options.lang || 'en';
+  const city = options.city || "nb-23";
+  const lang = options.lang || "en";
 
   // get the raw XML from the RSS feed
-  const url = `https://weather.gc.ca/rss/city/${city.toLowerCase()}_${lang.slice(0, 1).toLowerCase()}.xml`;
+  const url = `https://weather.gc.ca/rss/city/${city.toLowerCase()}_${lang
+    .slice(0, 1)
+    .toLowerCase()}.xml`;
 
   try {
     let data = await axios.get(url);

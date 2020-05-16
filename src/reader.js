@@ -1,5 +1,4 @@
-/* eslint-disable func-names */
-import { processors, parseString } from 'xml2js';
+import { processors, parseString } from "xml2js";
 
 /**
  * Parse XML into a Javascript object.
@@ -19,10 +18,7 @@ export default function (xml) {
     async: true,
     strict: true,
     attrNameProcessors: null,
-    attrValueProcessors: [
-      processors.parseNumbers,
-      processors.parseBooleans,
-    ],
+    attrValueProcessors: [processors.parseNumbers, processors.parseBooleans],
     tagNameProcessors: null,
     valueProcessors: null,
   };
