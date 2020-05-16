@@ -1,5 +1,3 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
 import reader from "./reader";
 import transformer from "./transformer";
 
