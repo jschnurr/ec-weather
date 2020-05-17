@@ -1,0 +1,10 @@
+src/
+webpack.config.js
+.gitignore
+.eslintrc.js
+.eslintignore
+.editorconfig
+.babelrc
+test/
+node_modules/
+.github/
