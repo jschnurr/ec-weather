@@ -1,10 +1,12 @@
-<script src="../dist/ec-weather.browser.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/ec-weather/dist/ec-weather.js"></script>
 <pre id="json"></pre>
 <script>
 ecWeather({
         lang: 'en',
         city: 'nb-23',
-    }).then((data) => {
+    })
+    .then((data) => {
         document.getElementById('json').innerHTML = JSON.stringify(data, undefined, 2);
     });
 </script>

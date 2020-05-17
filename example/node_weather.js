@@ -1,9 +1,10 @@
-const ecweather = require('../dist/ec-weather.node');
+const ecweather = require("ec-weather");
 
-ecweather({
-  lang: 'en',
-  city: 'nb-23',
-}).then((data) => {
+(async () => {
+  let data = await ecweather({
+    lang: "en",
+    city: "nb-23",
+  });
+
   console.log(JSON.stringify(data, undefined, 2));
-});
-
+})();
