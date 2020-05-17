@@ -48,7 +48,7 @@ Note the `axios` dependency. It must be in scope before loading `ec-weather`.
 
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="ec-weather.js"></script>
+<script src="https://unpkg.com/ec-weather/dist/ec-weather.js"></script>
 <pre id="json"></pre>
 <script>
 ecWeather({
