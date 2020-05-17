@@ -6,7 +6,7 @@ import { processors, parseString } from "xml2js";
  * @return {promise} Javascript object representation of the content.
  */
 
-export default function (xml) {
+export function parse(xml) {
   const options = {
     trim: true,
     normalizeTags: false,

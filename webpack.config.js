@@ -1,7 +1,7 @@
 const path = require("path");
 
-const commonConfig = {
-  entry: "./src/ec-weather.js",
+module.exports = {
+  entry: "./src/index.js",
   module: {
     rules: [
       {
@@ -10,33 +10,22 @@ const commonConfig = {
         use: [
           {
             loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env"],
-            },
           },
           { loader: "eslint-loader" },
         ],
       },
     ],
   },
-};
-
-const serverConfig = {
-  ...commonConfig,
-  target: "node",
+  optimization: {
+    minimize: true,
+  },
+  externals: ["axios"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "ec-weather.js",
+    library: "ecWeather",
+    libraryTarget: "umd",
+    libraryExport: "default",
+    globalObject: "this",
   },
 };
-
-const clientConfig = {
-  ...commonConfig,
-  target: "web",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "ec-weather.browser.js",
-  },
-};
-
-module.exports = [serverConfig, clientConfig];

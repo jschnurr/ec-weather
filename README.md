@@ -44,8 +44,11 @@ https://weather.gc.ca/city/pages/ns-19_metric_e.html --> ns-19
 Sample code is available in the **examples** directory.
 
 ## Browser
+Note the `axios` dependency. It must be in scope before loading `ec-weather`.
+
 ```html
-<script src="ec-weather.browser.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="ec-weather.js"></script>
 <pre id="json"></pre>
 <script>
 ecWeather({
@@ -64,19 +67,19 @@ Failed to load https://weather.gc.ca/rss/city/nb-23_e.xml: No 'Access-Control-Al
 ```
 This occurs if the server hosting the javascript code above does not present the *Access-Control-Allow-Origin* header, or the
 value does not match your local host. During development, you can workaround the issue with the
-[Allow-Control-Allow-Origin extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
+[Cross Domain - CORS extension](https://chrome.google.com/webstore/detail/cross-domain-cors/mjhpgnbimicffchbodmgfnemoghjakai?hl=en)
 in the Chrome Web Store.
 
 ## Node
 ```javascript
-const ecweather = require('ec-weather.node');
+const ecweather = require('ec-weather');
 
-ecweather({
+let data = await ecweather({
   lang: 'en',
   city: 'nb-23',
-}).then((data) => {
-  console.log(JSON.stringify(data, undefined, 2));
-});
+})
+
+console.log(JSON.stringify(data, undefined, 2));
 ```
 
 # Sample Output

@@ -1,7 +1,6 @@
-import reader from "./reader";
-import transformer from "./transformer";
-
-const axios = require("axios");
+import { parse } from "./parse.js";
+import { transform } from "./transform.js";
+import axios from "axios";
 
 /**
  * Retrieve forecast for specified city / language and return parsed result.
@@ -11,7 +10,7 @@ const axios = require("axios");
  * @return {promise} Javascript object containing the parsed city weather forecast.
  */
 
-async function ecWeather(options = {}) {
+export default async function ecWeather(options = {}) {
   // default options
   const city = options.city || "nb-23";
   const lang = options.lang || "en";
@@ -25,10 +24,10 @@ async function ecWeather(options = {}) {
     let data = await axios.get(url);
 
     // convert to JSON
-    data = await reader(data.data);
+    data = await parse(data.data);
 
     // apply transformations
-    data = transformer(lang, city, data);
+    data = transform(lang, city, data);
 
     // return result
     return data;
@@ -36,5 +35,3 @@ async function ecWeather(options = {}) {
     throw new Error(`Error processing ${url}. ${error}`);
   }
 }
-
-export default ecWeather;

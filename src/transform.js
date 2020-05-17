@@ -5,7 +5,7 @@ import camelCase from "camel-case";
  * - add a boolean to indicate whether a warning or watch is currently in effect.
  */
 function wwBuilder(item) {
-  const newItem = item;
+  const newItem = Object.assign({}, item);
 
   newItem.inEffect =
     item.title.indexOf("No watches or warnings in effect") === -1 &&
@@ -17,7 +17,7 @@ function wwBuilder(item) {
  * - parse summary and add key/value pair to the object for every measurement found.
  */
 function ccBuilder(item) {
-  const newItem = item;
+  const newItem = Object.assign({}, item);
   const readings = item.summary.split("\n");
 
   readings.forEach((reading) => {
@@ -36,7 +36,7 @@ function ccBuilder(item) {
 /** * Builder for weather forecasts
  */
 function wfBuilder(item) {
-  return item;
+  return Object.assign({}, item);
 }
 
 /** * Build Environment Canada city forecast badge URL
@@ -56,8 +56,40 @@ function makeBadgeUrl(lang, city) {
  * @param {object} feed - the object representation of the XML feed
  * @return {Object} Transformed version of the data
  */
-function transform(lang, city, feed) {
+export function transform(lang, city, feed) {
   const data = feed.feed;
+
+  let entries = [];
+  for (const item of data.entry) {
+    const obj = {
+      type: item.category.term,
+      title: item.title,
+      link: item.link.href,
+      updated: item.updated,
+      published: item.published,
+      summary: fromString(item.summary._, { wordwrap: null }),
+    };
+
+    switch (obj.type) {
+      case "Warnings and Watches":
+      case "Veilles et avertissements":
+        entries.push(wwBuilder(obj));
+        break;
+
+      case "Current Conditions":
+      case "Conditions actuelles":
+        entries.push(ccBuilder(obj));
+        break;
+
+      case "Weather Forecasts":
+      case "Prévisions météo":
+        entries.push(wfBuilder(obj));
+        break;
+
+      default:
+        throw Error(`Unrecognized category ${obj.type}.`);
+    }
+  }
 
   return {
     // metadata
@@ -70,34 +102,6 @@ function transform(lang, city, feed) {
     rights: data.rights,
 
     // each entry has the same template, plus type-specific processing
-    entries: data.entry.map((item) => {
-      const obj = {
-        type: item.category.term,
-        title: item.title,
-        link: item.link.href,
-        updated: item.updated,
-        published: item.published,
-        summary: fromString(item.summary._, { wordwrap: null }),
-      };
-
-      switch (obj.type) {
-        case "Warnings and Watches":
-        case "Veilles et avertissements":
-          return wwBuilder(obj);
-
-        case "Current Conditions":
-        case "Conditions actuelles":
-          return ccBuilder(obj);
-
-        case "Weather Forecasts":
-        case "Prévisions météo":
-          return wfBuilder(obj);
-
-        default:
-          throw Error(`Unrecognized category ${obj.type}.`);
-      }
-    }),
+    entries: entries,
   };
 }
-
-export default transform;
