@@ -1,4 +1,4 @@
-![dev-CI](https://github.com/jschnurr/ec-weather/workflows/dev-CI/badge.svg)
+![CI](https://github.com/jschnurr/ec-weather/workflows/CI/badge.svg)
 # ec-weather - an Environment Canada weather forecast feed in JSON
 
 [Weather.gc.ca](http://weather.gc.ca) provides weather forecasts for 768 locations
