@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jschnurr/ec-weather.svg?branch=master)](https://travis-ci.org/jschnurr/ec-weather)
+![dev-CI](https://github.com/jschnurr/ec-weather/workflows/dev-CI/badge.svg)
 # ec-weather - an Environment Canada weather forecast feed in JSON
 
 [Weather.gc.ca](http://weather.gc.ca) provides weather forecasts for 768 locations
@@ -34,10 +34,10 @@ Environment Canada uses 4-5 character city codes to identify
 the location for a given forecasts.  The city code can be found by navigating to the Local
 forecast, and examining the URL.
 
-For example:  
+For example:
 ```
-https://weather.gc.ca/city/pages/on-82_metric_e.html --> on-82  
-https://weather.gc.ca/city/pages/ns-19_metric_e.html --> ns-19  
+https://weather.gc.ca/city/pages/on-82_metric_e.html --> on-82
+https://weather.gc.ca/city/pages/ns-19_metric_e.html --> ns-19
 ```
 
 # Use
