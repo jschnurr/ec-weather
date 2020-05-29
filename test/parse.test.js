@@ -1,4 +1,3 @@
-/* eslint-disable no-undef, prefer-destructuring, no-unused-vars, no-underscore-dangle */
 import chai, { expect } from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { promises as fs } from "fs";
@@ -11,7 +10,7 @@ import nb23f_parsed from "./data/nb-23-f.parsed.json";
 
 chai.use(chaiAsPromised);
 
-describe("parse module", () => {
+describe("parse", () => {
   it("parses xml into javascript object for english version", async () => {
     const xml = await fs.readFile(path.join(__dirname, "data", "nb-23-e.xml"));
     const data = await parse(xml);
@@ -27,7 +26,6 @@ describe("parse module", () => {
   it("rejects promise if the xml cannot be parsed", () => {
     const xml = "garbage";
     const data = parse(xml);
-
     expect(data).to.be.rejectedWith(
       "Non-whitespace before first tag.\nLine: 0\nColumn: 1\nChar: g"
     );

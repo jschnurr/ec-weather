@@ -1,4 +1,3 @@
-/* eslint-disable no-undef, prefer-destructuring, no-unused-vars, no-underscore-dangle */
 import chai, { expect } from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { promises as fs } from "fs";
@@ -13,7 +12,7 @@ import nb23f_transformed from "./data/nb-23-f.transformed.json";
 
 chai.use(chaiAsPromised);
 
-describe("transform module", () => {
+describe("transform", () => {
   it("correctly transforms an object in english", async () => {
     const data = await transform("en", "nb-23", nb23e_parsed);
     expect(data).to.deep.equal(nb23e_transformed);
