@@ -7,12 +7,12 @@ const chaiAsPromised = require("chai-as-promised");
 
 chai.use(chaiAsPromised);
 
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 
 describe("parse module", () => {
   it("parses xml into javascript object for english version", async () => {
-    const xml = fs.readFileSync(path.join(__dirname, "data", "nb-23-e.xml"));
+    const xml = await fs.readFile(path.join(__dirname, "data", "nb-23-e.xml"));
     const data = await parse(xml);
 
     expect(data).to.be.an("object");
@@ -22,7 +22,7 @@ describe("parse module", () => {
   });
 
   it("parses xml into javascript object for french version", async () => {
-    const xml = fs.readFileSync(path.join(__dirname, "data", "nb-23-f.xml"));
+    const xml = await fs.readFile(path.join(__dirname, "data", "nb-23-f.xml"));
     const data = await parse(xml);
 
     expect(data).to.be.an("object");

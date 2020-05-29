@@ -3,13 +3,13 @@ import { transform } from "../src/transform";
 
 const chai = require("chai");
 const expect = require("chai").expect;
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 
 describe("transform module", () => {
   it("correctly transforms an object in english", async () => {
     const obj = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "data", "nb-23-e.json"))
+      await fs.readFile(path.join(__dirname, "data", "nb-23-e.json"))
     );
     const data = await transform("en", "nb-23", obj);
 
@@ -178,7 +178,7 @@ describe("transform module", () => {
 
   it("correctly transforms an object in french", async () => {
     const obj = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "data", "nb-23-f.json"))
+      await fs.readFile(path.join(__dirname, "data", "nb-23-f.json"))
     );
     const data = await transform("fr", "nb-23", obj);
 
