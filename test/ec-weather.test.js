@@ -1,9 +1,8 @@
 /* eslint-disable no-undef, prefer-destructuring, no-unused-vars, no-underscore-dangle */
-import ecWeather from "../src/index";
+import chai, { expect } from "chai";
+import chaiAsPromised from "chai-as-promised";
 
-const chai = require("chai");
-const expect = require("chai").expect;
-const chaiAsPromised = require("chai-as-promised");
+import ecWeather from "../src/index";
 
 chai.use(chaiAsPromised);
 

@@ -1,37 +1,26 @@
 /* eslint-disable no-undef, prefer-destructuring, no-unused-vars, no-underscore-dangle */
+import chai, { expect } from "chai";
+import chaiAsPromised from "chai-as-promised";
+import { promises as fs } from "fs";
+import path from "path";
+
 import { transform } from "../src/transform";
 
-const chai = require("chai");
-const expect = require("chai").expect;
-const fs = require("fs").promises;
-const path = require("path");
+import nb23e_parsed from "./data/nb-23-e.parsed.json";
+import nb23f_parsed from "./data/nb-23-f.parsed.json";
+import nb23e_transformed from "./data/nb-23-e.transformed.json";
+import nb23f_transformed from "./data/nb-23-f.transformed.json";
+
+chai.use(chaiAsPromised);
 
 describe("transform module", () => {
   it("correctly transforms an object in english", async () => {
-    const input = JSON.parse(
-      await fs.readFile(path.join(__dirname, "data", "nb-23-e.parsed.json"))
-    );
-    const expected = JSON.parse(
-      await fs.readFile(path.join(__dirname, "data", "nb-23-e.transformed.json"))
-    );
-
-    const data = await transform("en", "nb-23", input);
-
-    expect(data).to.be.an("object");
-    expect(data).to.deep.equal(expected);
+    const data = await transform("en", "nb-23", nb23e_parsed);
+    expect(data).to.deep.equal(nb23e_transformed);
   });
 
   it("correctly transforms an object in french", async () => {
-    const obj = JSON.parse(
-      await fs.readFile(path.join(__dirname, "data", "nb-23-f.parsed.json"))
-    );
-    const expected = JSON.parse(
-      await fs.readFile(path.join(__dirname, "data", "nb-23-f.transformed.json"))
-    );
-
-    const data = await transform("fr", "nb-23", obj);
-
-    expect(data).to.be.an("object");
-    expect(data).to.deep.equal(expected);
+    const data = await transform("fr", "nb-23", nb23f_parsed);
+    expect(data).to.deep.equal(nb23f_transformed);
   });
 });
