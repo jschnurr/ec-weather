@@ -17,13 +17,12 @@ chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
 describe("index (stubbed axios)", () => {
-
   let axiosGetStub;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     axiosGetStub = sinon.stub(axios, "get");
-    axiosGetStub.resolves({ 
-      data: await fs.readFile(path.join(__dirname, "data", "nb-23-e.xml"))
+    axiosGetStub.resolves({
+      data: await fs.readFile(path.join(__dirname, "data", "nb-23-e.xml")),
     });
   });
 
@@ -41,20 +40,23 @@ describe("index (stubbed axios)", () => {
     const weather = await ecWeather();
 
     expect(axiosGetStub).to.always.have.been.calledOnceWithExactly(
-      "https://weather.gc.ca/rss/city/nb-23_e.xml");
+      "https://weather.gc.ca/rss/city/nb-23_e.xml"
+    );
     expect(weather).to.deep.equal(nb23e_transformed);
   });
 
   it("returns results when options are fully specified", async () => {
-    const options = { lang: "zo", city: "xx-99" }
+    const options = { lang: "zo", city: "xx-99" };
     const weather = await ecWeather(options);
 
     expect(axiosGetStub).to.always.have.been.calledOnceWithExactly(
-      "https://weather.gc.ca/rss/city/xx-99_z.xml")
+      "https://weather.gc.ca/rss/city/xx-99_z.xml"
+    );
     expect(weather).to.deep.equal({
       ...nb23e_transformed,
       ...options,
-      badgeUrl: "https://weather.gc.ca/wxlink/wxlink.html?cityCode=xx-99&lang=z"
+      badgeUrl:
+        "https://weather.gc.ca/wxlink/wxlink.html?cityCode=xx-99&lang=z",
     });
   });
 });

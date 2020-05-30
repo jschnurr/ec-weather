@@ -17,7 +17,6 @@ chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
 describe.skip("ec-weather module (live)", () => {
-
   let axiosGetStub;
 
   beforeEach(() => {
@@ -32,23 +31,30 @@ describe.skip("ec-weather module (live)", () => {
     const weather = await ecWeather({ lang: "en", city: "nb-23" });
 
     expect(axiosGetStub).to.always.have.been.calledOnceWithExactly(
-      "https://weather.gc.ca/rss/city/nb-23_e.xml");
-    expect(weather.title).to.be.equal("Saint John - Weather - Environment Canada");
+      "https://weather.gc.ca/rss/city/nb-23_e.xml"
+    );
+    expect(weather.title).to.be.equal(
+      "Saint John - Weather - Environment Canada"
+    );
   });
 
   it("returns results (bc-74_f)", async () => {
     const weather = await ecWeather({ lang: "fr", city: "bc-74" });
 
     expect(axiosGetStub).to.always.have.been.calledOnceWithExactly(
-      "https://weather.gc.ca/rss/city/bc-74_f.xml");
-    expect(weather.title).to.be.equal("Vancouver - Météo - Environnement Canada");
+      "https://weather.gc.ca/rss/city/bc-74_f.xml"
+    );
+    expect(weather.title).to.be.equal(
+      "Vancouver - Météo - Environnement Canada"
+    );
   });
 
   it("rejects bad city code (xx-99_e)", async () => {
     const weather = ecWeather({ lang: "en", city: "xx-99" });
 
     expect(axiosGetStub).to.always.have.been.calledOnceWithExactly(
-      "https://weather.gc.ca/rss/city/xx-99_e.xml");
+      "https://weather.gc.ca/rss/city/xx-99_e.xml"
+    );
     return expect(weather).to.be.rejected; // eslint-disable-line
   });
 
@@ -56,7 +62,8 @@ describe.skip("ec-weather module (live)", () => {
     const weather = ecWeather({ lang: "xx", city: "nb-23" });
 
     expect(axiosGetStub).to.always.have.been.calledOnceWithExactly(
-      "https://weather.gc.ca/rss/city/nb-23_x.xml");
+      "https://weather.gc.ca/rss/city/nb-23_x.xml"
+    );
     return expect(weather).to.be.rejected; // eslint-disable-line
   });
 });
