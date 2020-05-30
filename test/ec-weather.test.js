@@ -16,7 +16,7 @@ import nb23e_transformed from "./data/nb-23-e.transformed.json";
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
-describe.skip("ec-weather module (live)", () => {
+describe("live: ec-weather module", () => {
   let axiosGetStub;
 
   beforeEach(() => {
