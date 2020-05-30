@@ -1,4 +1,4 @@
-import { processors, parseString } from "xml2js";
+import { processors, parseStringPromise } from "xml2js";
 
 /**
  * Parse XML into a Javascript object.
@@ -23,13 +23,5 @@ export function parse(xml) {
     valueProcessors: null,
   };
 
-  return new Promise((resolve, reject) => {
-    parseString(xml, options, (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-    });
-  });
+  return parseStringPromise(xml, options);
 }
