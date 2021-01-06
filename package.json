@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "camel-case": "~3.0.0",
     "html-to-text": "~5.1.1",
     "xml2js": "~0.4.23"
