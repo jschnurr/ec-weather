@@ -2,6 +2,13 @@ const path = require("path");
 
 module.exports = {
   entry: "./src/index.js",
+  resolve: {
+    fallback: {
+      stream: require.resolve("stream-browserify"),
+      buffer: require.resolve("buffer/"),
+      timers: require.resolve("timers-browserify"),
+    },
+  },
   module: {
     rules: [
       {
