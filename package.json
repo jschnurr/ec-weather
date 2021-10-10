@@ -1,7 +1,7 @@
 {
   "name": "ec-weather",
   "description": "Environment Canada publishes XML/RSS feeds with current conditions and a 7 day forecast for 768 towns/cities across Canada. This package retrieves the feed, and returns a parsed JSON representation of it.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/ec-weather.js",
   "author": "Jeff Schnurr <jschnurr@gmail.com>",
   "license": "MIT",
